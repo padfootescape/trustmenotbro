@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Welcome Portal</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; text-align: center; padding: 50px; background-color: #f3f3f3; }
+    input { padding: 10px; font-size: 16px; }
+    button { padding: 10px 20px; font-size: 16px; margin-top: 10px; }
+    .message { margin-top: 30px; font-size: 20px; color: #333; }
+  </style>
+</head>
+<body>
+  <h1>Welcome to the Portal</h1>
+  <p>Enter your name:</p>
+  <input type="text" id="nameInput" placeholder="Type your name" />
+  <br>
+  <button onclick="showMessages()">Enter</button>
+  <div class="message" id="messageBox"></div>
+
+  <script>
+    function showMessages() {
+      const name = document.getElementById("nameInput").value;
+      const box = document.getElementById("messageBox");
+      const messages = [
+        `Hello ${name}, welcome to the world of secrets.`,
+        `Hey ${name}, are you ready to uncover your destiny?`,
+        `${name}, your journey begins here...`
+      ];
+      box.innerHTML = messages.join("<br><br>");
+    }
+  </script>
+</body>
+</html>
