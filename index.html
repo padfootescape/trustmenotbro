@@ -3,8 +3,8 @@
 <head>
   <title>Welcome Portal</title>
   <style>
-    body { font-family: 'Segoe UI', sans-serif; text-align: center; padding: 50px; background: linear-gradient(to right,#0E0E52,#150578,#3943B7,#449DD1);color:white }
-    input { padding: 10px; font-size: 16px; }
+    body { font-family: 'Segoe UI', sans-serif; text-align: center; padding: 50px; background: linear-gradient(to right,#0E0E52,#150578,#3943B7,#449DD1); color:white; }
+    input { padding: 10px; font-size: 16px; margin: 5px; }
     button { padding: 10px 20px; font-size: 16px; margin-top: 10px; }
     .message { margin-top: 30px; font-size: 20px; color: white; }
   </style>
@@ -14,23 +14,38 @@
   <p>Enter your name:</p>
   <input type="text" id="nameInput" placeholder="Type your name" />
   <br>
-  <button onclick="showMessages()">Enter</button>
+  <button onclick="checkName()">Enter</button>
   <div class="message" id="messageBox"></div>
 
+  <!-- Hidden password input -->
+  <div id="passwordSection" style="display:none;">
+    <p>Enter password:</p>
+    <input type="password" id="passwordInput" placeholder="Password" />
+    <br>
+    <button onclick="checkPassword()">Submit</button>
+  </div>
+
   <script>
-    function showMessages() {
-      const name = document.getElementById("nameInput").value;
+    function checkName() {
+      const name = document.getElementById("nameInput").value.trim().toLowerCase();
       const box = document.getElementById("messageBox");
-      const messages = [
-        `Hello ${name}, welcome to the world of secrets.`,
-        ` are you ready to uncover your destiny?`,
-        `${name}, your journey begins here...`,
-         `press "Enter" or click to go to the next page`
-        
-      ];
+
+      if (name === "drake") {
+        box.innerText = "Hello Drake, please enter your password.";
+        document.getElementById("passwordSection").style.display = "block";
+      } else {
+        box.innerText = `Hello ${name}, welcome to the world of secrets.`;
+      }
     }
-    
+
+    function checkPassword() {
+      const password = document.getElementById("passwordInput").value.trim();
+      if (password === "abc") {
+        window.location.href = "photos.html"; // Redirect to photos page
+      } else {
+        alert("Incorrect password, try again!");
+      }
+    }
   </script>
 </body>
 </html>
-<!-- trigger GitHub Pages -->
