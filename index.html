@@ -30,11 +30,11 @@
       const name = document.getElementById("nameInput").value.trim().toLowerCase();
       const box = document.getElementById("messageBox");
 
-      if (name === "Snithik","affan") {
-        box.innerText = "Hello Drake, please enter your password.";
+      if (name === "Snithik") {
+        box.innerText = `Hello ${name}, Please enter your passwrod.`;
         document.getElementById("passwordSection").style.display = "block";
       } else {
-        box.innerText = `Hello ${name}, welcome to the world of secrets.`;
+        box.innerText = `Hello ${name}, sorry, you do not have access to this information.`;
       }
     }
 
@@ -49,4 +49,5 @@
   </script>
 </body>
 </html>
+
 
